@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>王猪传媒 VIP 专属通道</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system}
+body{background:#000;overflow-x:hidden}
+
+/* 页面切换 */
+.page{width:100%;min-height:100vh;display:none;padding:20px}
+.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+/*登录表单*/
+.login-title{
+    font-size:30px;
+    color:#fff;
+    margin-bottom:30px;
+    text-shadow:0 0 10px #ffd000,0 0 20px #ff8800;
+}
+.pwd-input{
+    width:90%;max-width:350px;
+    padding:15px;
+    margin:8px 0;
+    background:#111;
+    border:2px solid #ffc107;
+    border-radius:12px;
+    color:#fff;
+    font-size:17px;
+    outline:none;
+    text-align:center;
+}
+.login-btn{
+    width:90%;max-width:350px;
+    padding:14px;
+    margin-top:12px;
+    background:linear-gradient(90deg,#ffc107,#ff6600);
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:bold;
+    color:#000;
+}
+.err-text{
+    color:#ff4444;
+    margin-top:15px;
+    font-size:15px;
+    display:none;
+}
+.success-tip{
+    color:#39d972;
+    margin-top:12px;
+    display:none;
+}
+
+/*vip霓虹文字特效*/
+@keyframes neonText{
+    0%{text-shadow:0 0 5px #fff,0 0 10px #ffd000,0 0 20px #ff9500}
+    50%{text-shadow:0 0 10px #fff,0 0 25px #ffd000,0 0 40px #ff6600,0 0 60px #ff3300}
+    100%{text-shadow:0 0 5px #fff,0 0 10px #ffd000,0 0 20px #ff9500}
+}
+@keyframes slowFloat{
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-6px)}
+    100%{transform:translateY(0px)}
+}
+/*vip高阶全屏流光特效*/
+@keyframes vipGlowBg{
+    0%{background:radial-gradient(circle at 20% 30%,#2b1458,#000 60%)}
+    50%{background:radial-gradient(circle at 75% 65%,#612494,#000 60%)}
+    100%{background:radial-gradient(circle at 20% 30%,#2b1458,#000 60%)}
+}
+.neon{
+    color:#ffffff;
+    animation:neonText 1.8s infinite ease-in-out,slowFloat 3.5s infinite ease-in-out;
+}
+.vip-full-effect{
+    animation:vipGlowBg 5s infinite ease-in-out;
+}
+
+/* VIP页面盒子 */
+.vip-box{
+    max-width:700px;
+    width:95%;
+    padding:30px 20px;
+    background:rgba(25,25,25,0.72);
+    border-radius:16px;
+    border:1px solid #ffc10755;
+    margin:20px auto;
+}
+.vip-big-title{
+    font-size:40px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:25px;
+}
+.vip-sub{
+    font-size:18px;
+    line-height:2;
+    text-align:center;
+    margin:12px 0;
+}
+.back-main-btn,.qqgroup-btn{
+    width:90%;max-width:340px;
+    padding:13px;
+    margin:12px auto;
+    display:block;
+    background:#1a1a3b;
+    border:1px solid #ffc107;
+    border-radius:12px;
+    color:#ffe266;
+    font-size:16px;
+}
+.qqgroup-btn{
+    border-color:#2888ff;
+    color:#72b7ff;
+}
+.back-main-btn:active{
+    background:#2c2c60;
+}
+.qqgroup-btn:active{
+    background:#1c3b70;
+}
+</style>
+</head>
+<body>
+
+<!--第一页 VIP登录页-->
+<div class="page active" id="page1">
+    <div class="login-title">🔐 王猪传媒 VIP登录通道</div>
+    <input class="pwd-input" id="userAcc" placeholder="输入VIP账户名">
+    <input class="pwd-input" id="userPwd" placeholder="输入VIP账户密码">
+    <button class="login-btn" onclick="vipLogin()">登录VIP账号</button>
+    <div class="err-text" id="errTip">❌账号或者密码错误，请核对后重试！</div>
+    <div class="success-tip" id="sucTip">✅VIP身份验证成功，正在加载专属特效</div>
+</div>
+
+<!--第二页 VIP专属主页-->
+<div class="page" id="page2">
+    <div class="vip-box">
+        <h1 class="vip-big-title neon">王猪传媒</h1>
+        <p class="vip-sub neon">🏆 VIP认证会员专属权限已全部激活</p>
+        <p class="vip-sub neon">💎全站资源、模板、网页项目免费使用</p>
+        <p class="vip-sub neon">🎮 末日生存｜火影同人｜特效可视化项目</p>
+        <p class="vip-sub neon">✨粒子动画｜炫酷UI｜私人定制页面无限制调取</p>
+        <p class="vip-sub neon">🌐全部作品支持 GitHub Pages 永久部署</p>
+        <p class="vip-sub neon">🔒VIP高阶动态背景特效已启用</p>
+        <p class="vip-sub neon">👑备用账户均可正常登录系统</p>
+        <p class="vip-sub neon">👑作者：jsb｜王猪传媒工作室</p>
+        <p class="vip-sub neon">📩业务定制专属通道已开启</p>
+    </div>
+    <button class="back-main-btn" onclick="window.open('https://jsb78wz.github.io/wzcmgw/','_self')">返回主官网</button>
+    <button class="qqgroup-btn" onclick="window.open('https://qm.qq.com/cgi-bin/qm_q_con?uin=1045374924','_blank')">加入官方QQ群：1045374924</button>
+</div>
+
+<script>
+//两组VIP账号
+const accountList = [
+    {acc:"wzyh01",pwd:"wznb7891"},
+    {acc:"wzyh02",pwd:"wzcm666789"}
+];
+
+function vipLogin(){
+    let accVal = document.getElementById("userAcc").value.trim();
+    let pwdVal = document.getElementById("userPwd").value.trim();
+    let errDom = document.getElementById("errTip");
+    let sucDom = document.getElementById("sucTip");
+    let pass = false;
+    for(let item of accountList){
+        if(item.acc===accVal && item.pwd===pwdVal){
+            pass=true;
+            break;
+        }
+    }
+    if(!pass){
+        errDom.style.display="block";
+        sucDom.style.display="none";
+        return;
+    }
+    errDom.style.display="none";
+    sucDom.style.display="block";
+    setTimeout(()=>{
+        //切换页面
+        document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+        document.getElementById("page2").classList.add("active");
+        //加载全屏vip流动渐变背景特效
+        document.body.classList.add("vip-full-effect");
+    },1300)
+}
+</script>
+</body>
+</html>
