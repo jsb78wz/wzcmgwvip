@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>王猪传媒｜官方网站</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system}
+body{
+    background:#070714;
+    color:#fff;
+}
+
+/* 全局发光动画 */
+@keyframes glowText{
+    0%{text-shadow:0 0 10px #ffd000,0 0 20px #ff9500}
+    50%{text-shadow:0 0 20px #ffd000,0 0 40px #ff6600,0 0 60px #ff3300}
+    100%{text-shadow:0 0 10px #ffd000,0 0 20px #ff9500}
+}
+
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+    100%{transform:translateY(0)}
+}
+
+@keyframes fade{
+    0%{opacity:0.4}
+    50%{opacity:1}
+    100%{opacity:0.4}
+}
+
+/* 头部 */
+header{
+    width:100%;
+    padding:50px 20px;
+    text-align:center;
+    background:linear-gradient(160deg,#141442,#070714);
+}
+.logo-title{
+    font-size:44px;
+    font-weight:bold;
+    color:#ffe266;
+    animation:glowText 2s infinite ease-in-out;
+}
+.desc{
+    margin-top:12px;
+    color:#b8b8e8;
+    font-size:16px;
+}
+
+/* 导航栏 */
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:18px;
+    background:#0f0f2b;
+    position:sticky;
+    top:0;
+    z-index:99;
+}
+.nav-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#202058;
+    color:#fff;
+    font-size:15px;
+}
+.nav-btn:active{
+    background:#383890;
+}
+
+/* 轮播图 */
+.slide-box{
+    width:94%;
+    max-width:750px;
+    height:200px;
+    margin:20px auto;
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+}
+.slide-item{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    display:none;
+}
+.slide-item.active{
+    display:block;
+}
+.slide1{background:linear-gradient(45deg,#291b70,#7030dd);}
+.slide2{background:linear-gradient(45deg,#881818,#ff4444);}
+.slide3{background:linear-gradient(45deg,#106940,#29dd88);}
+.slide-text{
+    text-align:center;
+    line-height:200px;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 10px #000;
+}
+
+/* 主容器 */
+.container{
+    max-width:750px;
+    margin:0 auto;
+    padding:10px 15px 40px;
+}
+.card{
+    background:#121233;
+    border-radius:14px;
+    padding:22px;
+    margin:16px 0;
+}
+.card h2{
+    color:#ffdd55;
+    margin-bottom:12px;
+}
+.card p{
+    color:#d0d0f8;
+    line-height:1.8;
+}
+
+/* 作品跳转按钮 */
+.work-btn{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    color:#fff;
+    animation:float 4s infinite ease-in-out;
+}
+.b1{background:linear-gradient(90deg,#992222,#ff5555);}
+.b-more{background:#24244e;color:#aaa}
+
+/* 底部 */
+footer{
+    text-align:center;
+    padding:30px 15px;
+    background:#0b0b22;
+}
+.copyright{
+    font-size:18px;
+    font-weight:bold;
+    color:#ffe266;
+    animation:glowText 2s infinite;
+}
+.foot-desc{
+    margin-top:8px;
+    color:#999;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-title">王猪传媒</div>
+    <div class="desc">原创网页游戏｜静态网站｜创意可视化开发</div>
+</header>
+
+<nav>
+    <button class="nav-btn" onclick="goScroll('about')">关于我们</button>
+    <button class="nav-btn" onclick="goScroll('works')">作品中心</button>
+    <button class="nav-btn" onclick="goScroll('contact')">联系方式</button>
+</nav>
+
+<!-- 自动轮播图 -->
+<div class="slide-box">
+    <div class="slide-item active slide1">
+        <div class="slide-text">🎮 原创网页游戏开发</div>
+    </div>
+    <div class="slide-item slide2">
+        <div class="slide-text">🧟 末日生存基地守护大作</div>
+    </div>
+    <div class="slide-item slide3">
+        <div class="slide-text">✨ 炫酷特效｜粒子｜动画定制</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card" id="about">
+        <h2>📌 关于王猪传媒</h2>
+        <p>王猪传媒（JSB工作室）专注手机端、电脑端轻量化网页程序开发。<br>
+        主打：末日生存游戏、火影同人小游戏、休闲互动网页、特效可视化页面、个人官网定制。<br>
+        所有作品支持 Github Pages 公开部署、永久在线访问。</p>
+    </div>
+
+    <div class="card" id="works">
+        <h2>🎯 作品一键进入</h2>
+        <p>点击按钮，在新标签页打开游戏</p>
+
+        <button class="work-btn b1" onclick="window.open('https://jsb78wz.github.io/kb/','_blank')">🧟 末日基地守护（完整版）</button>
+        <button class="work-btn b-more">🔒更多游戏，后续持续更新</button>
+    </div>
+
+    <div class="card" id="contact">
+        <h2>📩 联系我们</h2>
+        <p>商务合作｜作品定制｜网页修改、加特效、加功能<br>
+        邮箱：3684037750@qq.com<br>
+        作者：jsb｜王猪传媒原创制作</p>
+    </div>
+</div>
+
+<footer>
+    <div class="copyright">王猪传媒制作｜JSB 原创工作室</div>
+    <div class="foot-desc">Copyright © 2026 All Rights Reserved</div>
+</footer>
+
+<script>
+// 轮播自动切换
+let index = 0;
+const slides = document.querySelectorAll(".slide-item");
+function loopSlide(){
+    slides.forEach(item=>item.classList.remove("active"));
+    index++;
+    if(index>=slides.length) index=0;
+    slides[index].classList.add("active");
+}
+setInterval(loopSlide,2800);
+
+// 平滑滚动
+function goScroll(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
